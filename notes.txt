@@ -1,0 +1,20 @@
+-- love /home/mikhail/Code/luaLOVE/mathsMonster
+-- love .
+
+background from https://itch.io/queue/c/6176319/maths-monster?game_id=992867&password=
+
+
+-- to do: 
+
+-- todos:
+-- [X] multiply and divide
+-- [X] balance the game
+-- [mostly] remove dev mode 
+-- [X] add audio 
+-- [X] refine pictures
+-- [] optimise code 
+-- [X] slideshow for pictures
+-- [X] if image dont exist no more, rewrite unlocks.txt
+-- [X] if pause then quit, at least keep money dont need highscore
+-- [] make exe and put on thumbdrive
+
