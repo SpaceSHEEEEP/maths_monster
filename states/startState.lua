@@ -34,33 +34,27 @@ function startState:update(dt)
     else
         local newX, newY = push:toGame(love.mouse.getPosition())
         if self.mouseInput then 
-            self.mouseX = newX
-            self.mouseY = newY
+            self.mouseX = newX or 0
+            self.mouseY = newY or 0
+            -- self.mouseX, self.mouseY
             if self.mouseX > 627 and self.mouseX < 1284 then 
-                if self.mouseY > 750 and self.mouseY < 825 then 
-                    self.cursor = 0
-                elseif self.mouseY > 825 and self.mouseY < 900 then 
-                    self.cursor = 1
-                elseif self.mouseY > 900 and self.mouseY < 975 then 
-                    self.cursor = 2
-                elseif self.mouseY > 975 and self.mouseY < 1050 then 
-                    self.cursor = 3
+                if     self.mouseY > 750 and self.mouseY < 825  then self.cursor = 0
+                elseif self.mouseY > 825 and self.mouseY < 900  then self.cursor = 1
+                elseif self.mouseY > 900 and self.mouseY < 975  then self.cursor = 2
+                elseif self.mouseY > 975 and self.mouseY < 1050 then self.cursor = 3
                 end
             end
 
             if love.mouse.isDown(1) then
-                if self.cursor == 0 then
-                    stateMachine:change("play")
-                elseif self.cursor == 1 then
-                    stateMachine:change("highScore")
-                elseif self.cursor == 2 then
-                    stateMachine:change("unlockables")
-                elseif self.cursor == 3 then
-                    love.event.quit()
+                if     self.cursor == 0 then    stateMachine:change("play")
+                elseif self.cursor == 1 then    stateMachine:change("highScore")
+                elseif self.cursor == 2 then    stateMachine:change("unlockables")
+                elseif self.cursor == 3 then    love.event.quit()
                 end
             end
 
-        elseif self.mouseX ~= newX or self.mouseY ~= newY and newX > 627 and newX < 1284 and newY > 750 and newY < 1050 then
+        elseif  (self.mouseX ~= newX or self.mouseY ~= newY) and 
+                (newX > 627 and newX < 1284 and newY > 750 and newY < 1050) then
             self.mouseInput = true
         end
     end
@@ -72,14 +66,10 @@ function startState:keypressed(key)
     end
 
     if (key == "return" or key == "kpenter") and self.showCursor then
-        if self.cursor == 0 then
-            stateMachine:change("play")
-        elseif self.cursor == 1 then
-            stateMachine:change("highScore")
-        elseif self.cursor == 2 then
-            stateMachine:change("unlockables")
-        elseif self.cursor == 3 then
-            love.event.quit()
+        if     self.cursor == 0 then stateMachine:change("play")
+        elseif self.cursor == 1 then stateMachine:change("highScore")
+        elseif self.cursor == 2 then stateMachine:change("unlockables")
+        elseif self.cursor == 3 then love.event.quit()
         end
     end
 

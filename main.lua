@@ -45,20 +45,20 @@ function love.load()
     no_image_found_png = love.graphics.newImage("assets/no_image_found.png")
 
     fonts = {
-        title = love.graphics.newFont("assets/PressStart.ttf", 200),
-        title2 = love.graphics.newFont("assets/PressStart.ttf", 60),
-        scores = love.graphics.newFont("assets/PressStart.ttf", 50),
-        normal = love.graphics.newFont("assets/PressStart.ttf", 40),
-        question = love.graphics.newFont("assets/PressStart.ttf", 100),
-        stats = love.graphics.newFont("assets/PressStart.ttf", 20)
+        title =     love.graphics.newFont("assets/PressStart.ttf", 200),
+        title2 =    love.graphics.newFont("assets/PressStart.ttf", 60),
+        scores =    love.graphics.newFont("assets/PressStart.ttf", 50),
+        normal =    love.graphics.newFont("assets/PressStart.ttf", 40),
+        question =  love.graphics.newFont("assets/PressStart.ttf", 100),
+        stats =     love.graphics.newFont("assets/PressStart.ttf", 20)
     }
 
     sounds = {
-        correct = love.audio.newSource("assets/correct.wav", "static"),
-        wrong = love.audio.newSource("assets/wrong.wav", "static"),
-        select = love.audio.newSource("assets/select.wav", "static"),
-        gameOver = love.audio.newSource("assets/gameOver.wav", "static"),
-        unlock = love.audio.newSource("assets/unlock.wav", "static")
+        correct =   love.audio.newSource("assets/correct.wav", "static"),
+        wrong =     love.audio.newSource("assets/wrong.wav", "static"),
+        select =    love.audio.newSource("assets/select.wav", "static"),
+        gameOver =  love.audio.newSource("assets/gameOver.wav", "static"),
+        unlock =    love.audio.newSource("assets/unlock.wav", "static")
     }
 
     stateMachine:load()
@@ -86,10 +86,7 @@ end
 -- searches through "table" for "param" and outputs a boolean depending on the outcome
 function inTable(param, table)
     for _, thing in pairs(table) do 
-        if thing == param then
-            return true
-        end
+        if thing == param then return true end
     end
-
     return false
 end
